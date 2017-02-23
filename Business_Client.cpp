@@ -17,9 +17,9 @@ Business_Client::~Business_Client()
 {
 }
 
-float Business_Client::cost(int num, Show& show)
+float Business_Client::cost(int num, Screening& screening)
 {
 	double discount;
 	num_of_tickets < 100 ? discount = 0 : discount = 0.05;
-	return num*discount*show.movie.price;
+	return num*discount*screening.getPrice();
 }

@@ -8,6 +8,6 @@ public:
 	Private_Client(string& name, int num_of_tickets);
 	Private_Client(string& name);
 	~Private_Client();
-	float cost(int num, Show& show);
+	float cost(int num, Screening& screening);
 };
 

@@ -17,9 +17,9 @@ Private_Client::~Private_Client()
 {
 }
 
-float Private_Client::cost(int num, Show& show)
+float Private_Client::cost(int num, Screening& screening)
 {
 	double discount;
 	num_of_tickets < 10 ? discount = 0 : discount = 0.05;
-	return num*discount*show.getPrice();
+	return num*discount*screening.getPrice();
 }

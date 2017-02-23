@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include "Screening.h"
 using namespace std;
 
 class Client
@@ -13,7 +13,7 @@ public:
 	Client(string& name, int num_of_tickets);//C'ntr with initialization of name and num_of_tickets
 	Client(string& name);//C'ntr with initialization of name. num_of_tickets will be 0;
 	~Client();
-	virtual float cost(int num, Show& show) = 0;//gets the number of tickets and returns the cost.
+	virtual float cost(int num, Screening& screening) = 0;//gets the number of tickets and the screening and returns the cost.
 	string getName();
 	int getCode();
 protected:
