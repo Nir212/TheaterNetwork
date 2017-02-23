@@ -8,11 +8,6 @@ public:
 	KidsMovie(string, int, int, float, float);
 
 	movieType getMovieType();
-	string getMovieName();
-	int getMovieCode();
-	int getMinAge();
-	float getLength();
-	float getPrice();
 	int getMaxAge();
 
 

@@ -3,8 +3,37 @@
 
 int Movie::serial = 0;
 
-Movie::Movie()
+Movie::Movie(string name, int minAge, float length, float price)
 {
+	this->name = name;
+	this->minAge = minAge;
+	this->length = length;
+	this->price = price;
+}
+
+string Movie::getMovieName()
+{
+	return name;
+}
+
+int Movie::getMovieCode()
+{
+	return code;
+}
+
+int Movie::getMinAge()
+{
+	return minAge;
+}
+
+float Movie::getLength()
+{
+	return length;
+}
+
+float Movie::getPrice()
+{
+	return price;
 }
 
 
