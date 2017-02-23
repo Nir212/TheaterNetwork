@@ -13,11 +13,12 @@ class HorrorMovie :
 public:
 	HorrorMovie(string, int, float, float, hRate);
 
+	movieType getMovieType();
 	hRate getHorrorRate();
 
 	~HorrorMovie();
 
 private:
-	int horrorRate;
+	hRate horrorRate;
 };
 

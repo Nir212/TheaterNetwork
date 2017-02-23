@@ -12,14 +12,14 @@ enum movieType{
 class Movie
 {
 public:
-	Movie();
+	Movie(string, int, float, float);
 
+	string getMovieName();
+	int getMovieCode();
+	int getMinAge();
+	float getLength();
+	float getPrice();
 	virtual movieType getMovieType() = 0;
-	virtual string getMovieName() = 0;
-	virtual int getMovieCode() = 0;
-	virtual int getMinAge() = 0;
-	virtual float getLength() = 0;
-	virtual float getPrice() = 0;
 
 	~Movie();
 

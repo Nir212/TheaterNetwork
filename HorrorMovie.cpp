@@ -2,16 +2,22 @@
 #include "HorrorMovie.h"
 
 
-HorrorMovie::HorrorMovie(string name, int minAge, float length, float price, hRate horrorRate)
+HorrorMovie::HorrorMovie(string name, int minAge, float length, float price, hRate horrorRate): Movie(name, minAge, length, price)
 {
 	mType = horror;
 	Movie::serial++;
 	code = Movie::serial;
-	this->name = name;
-	this->minAge = minAge;
-	this->length = length;
-	this->price = price;
 	this->horrorRate = horrorRate;
+}
+
+movieType HorrorMovie::getMovieType()
+{
+	return mType;
+}
+
+hRate HorrorMovie::getHorrorRate()
+{
+	return horrorRate;
 }
 
 
