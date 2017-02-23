@@ -11,16 +11,18 @@ Client::~Client()
 {
 }
 
-Client::Client(string& name, int num_of_tickets)
+Client::Client(string& name, int age, int num_of_tickets)
 {
 	this->name = name;
+	this->age = age;
 	this->num_of_tickets = num_of_tickets;
 	code = count;
 	count++;
 }
-Client::Client(string& name)
+Client::Client(string& name, int age)
 {
 	this->name = name;
+	this->age = age;
 	this->num_of_tickets = 0;
 	count++;
 	code = count;
@@ -34,4 +36,8 @@ string Client::getName()
 int Client::getCode()
 {
 	return code;
+}
+int Client::getAge()
+{
+	return age;
 }
