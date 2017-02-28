@@ -8,16 +8,17 @@ public:
 	Screening();
 	Screening(Movie& movie, Screening_Room& screening_Room, int time);
 	~Screening();
-	int getMovieCode();
-	float getPrice();
-	void addSeat(Client& client);
-	void addSeat(Client& client, int num);
+	int getMovieCode();//get the movie code
+	float getPrice();//get a single ticket price
+	void addSeat(Client& client, int row, int col);//add a single seat to the screening
+	void addSeat(Client& client, int row, int col, int num);//add a number of seats to the screening
 	int getTime();
-
+	const bool** getSeatArr();//get the seat array.
 private:
-	Movie* movie;
-	Screening_Room* screening_Room;
-	int time;
-	int available_seats;
+	bool ** seatArr;//seat managment array;
+	Movie* movie;//the movie
+	Screening_Room* screening_Room;//the scrrening room
+	int time;//the screening hour
+	int available_seats;//number of available seats
 };
 
