@@ -52,6 +52,11 @@ int Screening_Room::getCols()
 	return col;
 }
 
+bool  Screening_Room::operator==(int code)
+{
+	return (this->roomNum == code);
+}
+
 Screening_Room::~Screening_Room()
 {
 }

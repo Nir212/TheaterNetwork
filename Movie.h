@@ -20,7 +20,7 @@ public:
 	float getLength();
 	float getPrice();
 	virtual movieType getMovieType() = 0;
-
+	bool operator==(int code);//check eqaulity by code.
 	~Movie();
 
 protected:

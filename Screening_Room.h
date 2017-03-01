@@ -12,7 +12,7 @@ public:
 	int getRows();
 	int getCols();
 	bool ** creatSeats();
-
+	bool operator==(int code);//check eqaulity by code.
 
 
 private:

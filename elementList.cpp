@@ -54,7 +54,7 @@ T& elementList<T>::search(int code)
 		if (vec[i] == code)
 			return vec[i];
 	}
-	throw (2);
+	throw (1);
 }
 
 template<class T>

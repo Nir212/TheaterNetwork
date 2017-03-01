@@ -4,6 +4,8 @@
 
 Screening::Screening()
 {
+	count++;
+	code = count;
 }
 
 Screening::Screening(Movie& movie, Screening_Room& screening_Room, int time)
@@ -13,7 +15,11 @@ Screening::Screening(Movie& movie, Screening_Room& screening_Room, int time)
 	this->seatArr = screening_Room.creatSeats();
 	this->time = time;
 	this->available_seats = screening_Room.getSeats();
+	count++;
+	code = count;
 }
+
+int Screening::count = 0;
 
 Screening::~Screening()
 {
@@ -47,4 +53,14 @@ int Screening::getTime()
 const bool** Screening::getSeatArr()
 {
 	return (const bool**) seatArr;
+}
+
+int Screening::getCode()
+{
+	return code;
+}
+
+bool  Screening::operator==(int code)
+{
+	return (this->code == code);
 }

@@ -19,6 +19,7 @@ public:
 	string getName();
 	int getCode();
 	int getAge();
+	bool operator==(int code);//check eqaulity by code.
 protected:
 	static int count;//counts how many clients so far.
 	int num_of_tickets;

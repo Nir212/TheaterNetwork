@@ -41,3 +41,8 @@ int Client::getAge()
 {
 	return age;
 }
+
+bool  Client::operator==(int code)
+{
+	return (this->code == code);
+}
