@@ -2,6 +2,9 @@
 #include "Movie.h"
 #include "Screening_Room.h"
 #include "Client.h"
+
+class Client;
+
 class Screening
 {
 public:
@@ -11,7 +14,6 @@ public:
 	int getMovieCode();//get the movie code
 	float getPrice();//get a single ticket price
 	void addSeat(Client& client, int row, int col);//add a single seat to the screening
-	void addSeat(Client& client, int row, int col, int num);//add a number of seats to the screening
 	int getTime();
 	const bool** getSeatArr();//get the seat array.
 private:

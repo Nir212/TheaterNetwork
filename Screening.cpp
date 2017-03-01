@@ -31,22 +31,14 @@ float Screening::getPrice()
 
 void Screening::addSeat(Client& client, int row, int col)
 {
-	if (client.getAge < movie->getMinAge)
+	if (client.getAge() < movie->getMinAge())
 		throw 0;//minimum age requirement
 	if (available_seats==0)
 		throw 1;//screening is full
 	available_seats--;
 	seatArr[row][col] = true;
 }
-void Screening::addSeat(Client& client, int row, int col, int num)
-{
-	if (client.getAge < movie->getMinAge)
-		throw 0;//minimum age requirement
-	if (available_seats < num)
-		throw 1;//screening is full
-	available_seats -= num;
-	seatArr[row][col] = true;
-}
+
 int Screening::getTime()
 {
 	return time;
@@ -54,5 +46,5 @@ int Screening::getTime()
 
 const bool** Screening::getSeatArr()
 {
-	return seatArr;
+	return (const bool**) seatArr;
 }

@@ -3,6 +3,8 @@
 #include "Screening.h"
 using namespace std;
 
+class Screening;
+
 class Client
 {
 	/*The Client class is an abstract class that contains all the fields of both 
