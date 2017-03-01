@@ -36,6 +36,10 @@ float Movie::getPrice()
 	return price;
 }
 
+bool  Movie::operator==(int code)
+{
+	return (this->code == code);
+}
 
 Movie::~Movie()
 {
