@@ -1,8 +1,12 @@
 #pragma once
 #include "Employee.h"
 #include "RegularEmployee.h"
+#include "elementList.h"
+#include "elementList.cpp"
 #include <vector>
 using namespace std;
+
+#define MANAGER_PAYMENT 30.0
 
 class RegularEmployee;
 
@@ -10,12 +14,16 @@ class Manager :
 	public Employee
 {
 public:
-	Manager();
-	vector<RegularEmployee> rgVec;
+	Manager(string);
+	elementList<RegularEmployee> rgVec;
+	void addEmployee(string);  //employee name
 	~Manager();
+	float getPayment(int);
+
+	int totalTicketsSold();
 
 private:
-	static int managerCode;
+	static int counter;
 
 };
 

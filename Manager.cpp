@@ -2,12 +2,39 @@
 #include "Manager.h"
 
 
-int Manager::managerCode = 0;
+int Manager::counter = 0;
 
-Manager::Manager()
+
+Manager::Manager(string name) : Employee(name)
 {
-	rgVec.push_back(RegularEmployee());
+	this->code = counter++;
 }
+
+void Manager::addEmployee(string name)
+{
+	RegularEmployee rg = RegularEmployee(name, this->code);
+	rgVec.addElement(rg);
+}
+
+int Manager::totalTicketsSold()
+{
+	int sum = 0;
+	for (int i = 0; i < rgVec.getSize(); i++)
+	{
+		sum = sum + rgVec[i].getSoldTickets();
+	}
+
+	return sum;
+}
+
+float Manager::getPayment(int numOfHours)
+{
+	int tmp = totalTicketsSold();
+	if (tmp > 1000)
+		tmp = tmp + 100;
+	return (float)numOfHours * MANAGER_PAYMENT + tmp;
+}
+
 
 Manager::~Manager()
 {

@@ -1,6 +1,7 @@
 #pragma once
 #include "Employee.h"
 #include "Manager.h"
+#define REGULAR_PAYMENT 20.0
 
 class Manager;
 
@@ -8,15 +9,17 @@ class RegularEmployee :
 	public Employee
 {
 public:
-	RegularEmployee();
+	RegularEmployee(string, int); //name, manager
 
-	const int getSoldTickets();
+	int getSoldTickets() const;
+	void sellTickets(int);
+	float getPayment(int);
 
 	~RegularEmployee();
 
 private:
-	static int soldTickets;
+	int soldTickets;
 	int managerCode;
-	static int regularEmployeeCode;
+	static int counter;
 };
 
