@@ -16,7 +16,7 @@ void UI::printMainMenu()
 		cout << "2 - Add new Movie\n";
 		cout << "3 - Add new Theater Room\n";
 		cout << "4 - Add new Screening\n";
-		cout << "5 - Make an Order\n";
+		cout << "5 - Make a Purches\n";
 		cout << "6 - Get Employee's Salary\n";
 		cout << "\n0 - exit\n";
 		cin >> action;
@@ -31,34 +31,19 @@ void UI::printMainMenu()
 			break;
 
 		case 3:
-			/*	try
-			{
-			cout << "the last student in the stack is:" << studentStack.peek().name << "\n";
-			}
-			catch (int e)
-			{
-			cout << "the stack is empty\n";
-			}*/
+			printNewScreeningRoomMenu();
 			break;
 
 		case 4:
-			//if (studentStack.isEmpty())
-			//	cout << "the stack is empty\n";
-			//else
-			//	cout << "the stack is not empty\n";
+			printNewScreeningMenu();
 			break;
 
 		case 5:
-			//try
-			//{
-			//	cout << "the student with the highest average in the stack is:" << studentStack.max().name;
-			//	cout << "\nwith average:" << studentStack.max().avg << "\n";
-			//}
-			//catch (int e)
-			//{
-			//	cout << "the stack is empty\n";
-			//}
-
+			printPurchaseMenu();
+			break;
+		
+		case 6:
+			printEmployeeSalary();
 			break;
 
 		case 0:
@@ -197,23 +182,227 @@ void UI::printHorrorRate()
 	cout << "3 - Terrifying\n";
 }
 
-void UI::printNewTheaterRoomMenu()
+void UI::printNewScreeningRoomMenu()
 {
+	int numOfSeats;
+	int row;
+	int flag = false;
 
+	do
+	{
+		cout << "Please enter num of seats:\n";
+		cin >> numOfSeats;
+		cout << "Please enter num of rows:\n";
+		cin >> row;
+		if (row <= 0 || numOfSeats <= 0)
+		{
+			flag = true;
+			cout << "One or more of your numbers is wrong\nPlease try again...\n";
+		}
+		else
+			flag = false;
+	} while (flag);
+	
+	th.addScreeningRoom(numOfSeats, row);
 }
 
 void UI::printNewScreeningMenu()
 {
+	int movieCode;
+	int screeningRoomCode;
+	int time;
+	int flag = false;
+
+	do
+	{
+		cout << "Please enter movie code:\n";
+		cin >> movieCode;
+		cout << "Please enter screening room number:\n";
+		cin >> screeningRoomCode;
+		cout << "Please enter screening time (hhmm):\n";
+		cin >> time;
+		if (movieCode <= 0 || screeningRoomCode <= 0)
+		{
+			flag = true;
+			cout << "One or more of your numbers is wrong\nPlease try again...\n";
+		}
+		else if (time / 100 >= 24 || time / 100 < 0 || time % 100 >= 60)
+		{
+			flag = true;
+		}
+		else
+			flag = false;
+	} while (flag);
+
+	try{
+		th.addScreening(movieCode, screeningRoomCode, time);
+	}
+	catch (int e)
+	{
+		cout << "Error - please try again...\n";
+	}
 
 }
 
 void UI::printPurchaseMenu()
 {
+	int employeeCode;
+	int managerCode;
+	int clientCode;
+	int movieCode;
+	bool flag = true;
+	int screeningCode;
+	int ticketsNum;
+	int yesORno;
+	int row, col;
 
+	do{
+		cout << "*** To exit login mode - enter 0 for codes ***\n";
+		cout << "Please enter employee code -\n";
+		cin >> employeeCode;
+		cout << "Please enter manager code -\n";
+		cin >> managerCode;
+	} while (!th.checkEmployee(managerCode, employeeCode) || (managerCode == 0 && employeeCode == 0));
+
+
+	if (managerCode != 0 && employeeCode != 0)
+	{
+		th.printMovies();
+		cout << "Choose movie by entering Movie Code -\n";
+		cin >> movieCode;
+		try
+		{
+			th.printScreenings(movieCode);
+		}
+		catch (int e)
+		{
+			cout << "Wrong Movie Code. Please Try again...\n";
+			flag = false;
+		}
+	}
+
+	if(flag)
+	{
+		cout << "Please enter client code -\n";
+		cin >> clientCode;
+		cout << "Please choose screening code -\n";
+		cin >> screeningCode;
+		cout << "Please choose number of tickets -\n";
+		cin >> ticketsNum;
+		try
+		{
+			cout << "The price for " << ticketsNum << " of tickets is - " << th.ticketsCost(clientCode, screeningCode, ticketsNum) << "\n";
+			cout << "would you like to proceed?\n1-yes\n2-no";
+			cin >> yesORno;
+			if (yesORno != 1)
+				flag = false;
+		}
+		catch (int e)
+		{
+			if (e == 2)
+				cout << "We are sorry - your age isn't appropriate for this movie.\n";
+			else
+				cout << "No such client or screening. Please Try Again...\n";
+			flag = false;
+		}
+	}
+
+	if (flag)
+	{
+		th.printSeatArr(screeningCode);
+		for (int i = 0; i < ticketsNum; i++)
+		{
+			cout << "please choose row -\n";
+			cin >> row;
+			cout << "please choose col -\n";
+			cin >> col;
+			try
+			{
+				th.addSeat(clientCode, screeningCode, row, col);
+			}
+			catch (int e)
+			{
+				cout << "This seat is taken. please try again...\n";
+				i--;
+			}
+		}
+		try
+		{
+			th.ticketsPurchase(clientCode, managerCode, employeeCode, ticketsNum);
+		}
+		catch (int e)
+		{
+			cout << "Error - Please try again...\n";
+			flag = false;
+		}
+	}
+
+	if (flag)
+		cout << "Purches succeeded!\n";
 }
 
-void UI::printGetEmployeeSalary()
+void UI::printEmployeeSalary()
 {
+	int managerCode;
+	int employeeCode;
+	int numOfHours;
+	int action;
+	bool flag;
+
+	do
+	{
+		cout << "Which salary check would you like to do?\n";
+		cout << "1 - Employee\n";
+		cout << "2 - Manager\n";
+		cout << "0 - exit\n";
+		cin >> action;
+
+		switch (action)
+		{
+		case 1:
+			cout << "Please enter manager code:\n";
+			cin >> managerCode;
+			cout << "Please enter employee code:\n";
+			cin >> employeeCode;
+			cout << "Please enter num of hours:\n";
+			cin >> numOfHours;
+			try
+			{
+				th.getSalary(numOfHours, managerCode, employeeCode);
+			}
+			catch (int e)
+			{
+				cout << "Error - please try again...\n";
+			}
+
+			break;
+
+		case 2:
+			cout << "Please enter manager code:\n";
+			cin >> managerCode;
+			cout << "Please enter employee code:\n";
+			cin >> employeeCode;
+			cout << "Please enter num of hours:\n";
+			cin >> numOfHours;
+			try
+			{
+				th.getSalary(numOfHours, managerCode);
+			}
+			catch (int e)
+			{
+				cout << "Error - please try again...\n";
+			}
+
+			break;
+
+		case 0:
+			cout << "End salary check.\n";
+			break;
+
+		default:
+			cout << "invalid action. Please try again...\n";
+		}
+	} while (action);
 
 }
 

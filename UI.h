@@ -15,10 +15,10 @@ public:
 
 	void printNewEmployeeMenu();
 	void printNewMovieMenu();
-	void printNewTheaterRoomMenu();
+	void printNewScreeningRoomMenu();
 	void printNewScreeningMenu();
 	void printPurchaseMenu();
-	void printGetEmployeeSalary();
+	void printEmployeeSalary();
 
 	void printHorrorRate();
 
