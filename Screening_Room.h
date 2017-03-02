@@ -7,12 +7,12 @@ public:
 	Screening_Room(int, int); // num of seats and num of rows
 	~Screening_Room();
 
-	int getRoomNum();
-	int getSeats();
-	int getRows();
-	int getCols();
+	int getRoomNum() const;
+	int getSeats() const;
+	int getRows() const;
+	int getCols() const;
 	bool ** creatSeats();
-	bool operator==(int code);//check eqaulity by code.
+	bool operator==(int code) const;//check eqaulity by code.
 
 
 private:

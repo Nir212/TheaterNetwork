@@ -10,12 +10,12 @@ KidsMovie::KidsMovie(string name, int minAge, int maxAge, float length, float pr
 	this->maxAge = maxAge;
 }
 
-movieType KidsMovie::getMovieType()
+movieType KidsMovie::getMovieType() const
 {
 	return mType;
 }
 
-int KidsMovie::getMaxAge()
+int KidsMovie::getMaxAge() const
 {
 	return maxAge;
 }

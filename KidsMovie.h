@@ -7,8 +7,8 @@ public:
 
 	KidsMovie(string, int, int, float, float);
 
-	movieType getMovieType();
-	int getMaxAge();
+	movieType getMovieType() const;
+	int getMaxAge() const;
 
 
 	~KidsMovie();

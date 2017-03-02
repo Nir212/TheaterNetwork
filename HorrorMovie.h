@@ -2,9 +2,9 @@
 #include "Movie.h"
 
 enum hRate{
-	lite,
-	scary,
-	terrifying
+	lite = 1,
+	scary = 2,
+	terrifying = 3
 };
 
 class HorrorMovie :
@@ -13,8 +13,8 @@ class HorrorMovie :
 public:
 	HorrorMovie(string, int, float, float, hRate);
 
-	movieType getMovieType();
-	hRate getHorrorRate();
+	movieType getMovieType() const;
+	hRate getHorrorRate() const;
 
 	~HorrorMovie();
 

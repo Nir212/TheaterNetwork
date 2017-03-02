@@ -11,32 +11,32 @@ Movie::Movie(string name, int minAge, float length, float price)
 	this->price = price;
 }
 
-string Movie::getMovieName()
+string Movie::getMovieName() const
 {
 	return name;
 }
 
-int Movie::getMovieCode()
+int Movie::getMovieCode() const
 {
 	return code;
 }
 
-int Movie::getMinAge()
+int Movie::getMinAge() const
 {
 	return minAge;
 }
 
-float Movie::getLength()
+float Movie::getLength() const
 {
 	return length;
 }
 
-float Movie::getPrice()
+float Movie::getPrice() const
 {
 	return price;
 }
 
-bool  Movie::operator==(int code)
+bool  Movie::operator==(int code) const
 {
 	return (this->code == code);
 }

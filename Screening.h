@@ -11,13 +11,13 @@ public:
 	Screening();
 	Screening(Movie& movie, Screening_Room& screening_Room, int time);
 	~Screening();
-	int getMovieCode();//get the movie code
-	float getPrice();//get a single ticket price
+	int getMovieCode() const;//get the movie code
+	float getPrice() const;//get a single ticket price
 	void addSeat(Client& client, int row, int col);//add a single seat to the screening
-	int getTime();
-	const bool** getSeatArr();//get the seat array.
-	int getCode();//get the screening code.
-	bool operator==(int code);//check eqaulity by code.
+	int getTime() const;
+	const bool** getSeatArr() const;//get the seat array.
+	int getCode() const;//get the screening code.
+	bool operator==(int code) const;//check eqaulity by code.
 private:
 	bool ** seatArr;//seat managment array;
 	Movie* movie;//the movie

@@ -13,7 +13,7 @@ public:
 
 	int getSoldTickets() const;
 	void sellTickets(int);
-	float getPayment(int);
+	float getPayment(int) const;
 
 	~RegularEmployee();
 

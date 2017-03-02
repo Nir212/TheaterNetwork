@@ -31,13 +31,13 @@ void elementList<T>::removeElement(int code)
 			return;
 		}
 	}
-	throw (2);
+	throw (1);
 }
 
 template<class T>
-bool elementList<T>::isEmpty()
+bool elementList<T>::isEmpty() const
 {
-	if (q.size() == 0)
+	if (vec.size() == 0)
 		return true;
 	else
 		return false;
@@ -47,7 +47,7 @@ template<class T>
 T& elementList<T>::search(int code)
 {
 	int len = vec.size();
-	if (isEmpty)
+	if (isEmpty())
 		throw (1);
 	for (int i = 0; i < len; i++)
 	{
@@ -58,7 +58,7 @@ T& elementList<T>::search(int code)
 }
 
 template<class T>
-int elementList<T>::getSize()
+int elementList<T>::getSize() const
 {
 	
 	
@@ -67,7 +67,7 @@ int elementList<T>::getSize()
 }
 
 template<class T>
-const T& elementList<T>::operator[](int i)
+const T& elementList<T>::operator[](int i) const
 {
 	return vec[i];
 }

@@ -14,13 +14,13 @@ class Movie
 public:
 	Movie(string, int, float, float);
 
-	string getMovieName();
-	int getMovieCode();
-	int getMinAge();
-	float getLength();
-	float getPrice();
-	virtual movieType getMovieType() = 0;
-	bool operator==(int code);//check eqaulity by code.
+	string getMovieName() const;
+	int getMovieCode() const;
+	int getMinAge() const;
+	float getLength() const;
+	float getPrice() const;
+	virtual movieType getMovieType() const = 0;
+	bool operator==(int code) const;//check eqaulity by code.
 	~Movie();
 
 protected:
