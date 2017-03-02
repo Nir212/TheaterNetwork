@@ -16,7 +16,7 @@ void Manager::addEmployee(string name)
 	rgVec.addElement(rg);
 }
 
-int Manager::totalTicketsSold()
+int Manager::totalTicketsSold() const
 {
 	int sum = 0;
 	for (int i = 0; i < rgVec.getSize(); i++)
@@ -27,7 +27,7 @@ int Manager::totalTicketsSold()
 	return sum;
 }
 
-float Manager::getPayment(int numOfHours)
+float Manager::getPayment(int numOfHours) const
 {
 	int tmp = totalTicketsSold();
 	if (tmp > 1000)

@@ -18,22 +18,25 @@ class Theater
 public:
 	Theater();
 	~Theater();
-	void addClient(string& name, int age, int type);
+	void addClient(string& name, int age, bool isPrivate);
 	void addManager(string& name);
-	void addEmployee(string& name);
-	void addMovie(string& name, int minAge, float length, float price,int type);
+	void addRegularEmployee(string& name, int managerCode);
+	void addHorrorMovie(string& name, int minAge, float length, float price, hRate rating);
+	void addKidsMovie(string& name, int minAge, int maxAge, float length, float price);
 	void addScreeningRoom(int num_of_seats, int row);
 	void addScreening(int movie_code, int screeningRoom_code, int time);
 	
-	void ticketsPurchase(int client_code, int screening_code, int tickets_num);
+	void ticketsPurchase(int client_code, int manager_code, int employee_code, int tickets_num);
 	float ticketsCost(int client_code, int screening_code, int tickets_num);
+	void addSeat(int client_code,int screening_code, int row, int col);
+	const bool** getSeatArr(int screening_code);
 
 	void printClients();
 	void printManagers();
-	void printEmployees();
+	void printRegularEmployees();
 	void printMovies();
 	void printScreeningRooms();
-	void printScreenings();
+	void printScreenings(int movie_code);
 
 private:
 	elementList<Movie> movieList;

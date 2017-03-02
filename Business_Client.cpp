@@ -17,7 +17,7 @@ Business_Client::~Business_Client()
 {
 }
 
-float Business_Client::cost(int num, Screening& screening)
+float Business_Client::cost(int num, Screening& screening) const
 {
 	float discount;
 	num_of_tickets < 100 ? discount = 0 : discount = 0.05;

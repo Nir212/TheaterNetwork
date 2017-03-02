@@ -29,20 +29,25 @@ Client::Client(string& name, int age)
 }
 int Client::count = 0;
 
-string Client::getName()
+string Client::getName() const
 {
 	return name;
 }
-int Client::getCode()
+int Client::getCode() const
 {
 	return code;
 }
-int Client::getAge()
+int Client::getAge() const
 {
 	return age;
 }
 
-bool  Client::operator==(int code)
+bool  Client::operator==(int code) const
 {
 	return (this->code == code);
+}
+
+void Client::addTickets(int num)
+{
+	num_of_tickets+=num;
 }

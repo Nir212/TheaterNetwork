@@ -13,17 +13,17 @@ Screening_Room::Screening_Room(int num_of_seats, int row)
 	roomNum = count;
 }
 
-int Screening_Room::getRoomNum()
+int Screening_Room::getRoomNum() const
 {
 	return roomNum;
 }
 
-int Screening_Room::getSeats()
+int Screening_Room::getSeats() const
 {
 	return num_of_seats;
 }
 
-bool ** Screening_Room::creatSeats()
+bool ** Screening_Room::creatSeats() 
 {
 	bool ** seatsArr;
 	seatsArr = new bool*[row];
@@ -42,17 +42,17 @@ bool ** Screening_Room::creatSeats()
 	return seatsArr;
 }
 
-int Screening_Room::getRows()
+int Screening_Room::getRows() const
 {
 	return row;
 }
 
-int Screening_Room::getCols()
+int Screening_Room::getCols() const
 {
 	return col;
 }
 
-bool  Screening_Room::operator==(int code)
+bool  Screening_Room::operator==(int code) const
 {
 	return (this->roomNum == code);
 }

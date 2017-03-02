@@ -21,7 +21,7 @@ void RegularEmployee::sellTickets(int numOfTickets)
 	soldTickets = soldTickets + numOfTickets;
 }
 
-float RegularEmployee::getPayment(int numOfHours)
+float RegularEmployee::getPayment(int numOfHours) const
 {
 	return ((float)numOfHours * REGULAR_PAYMENT + 2 * soldTickets);
 }

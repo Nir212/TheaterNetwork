@@ -10,11 +10,11 @@ class Employee
 public:
 	Employee(string);
 	
-	string getName();
+	string getName() const;
 
-	bool operator==(int);
-	int getCode();
-	virtual float getPayment(int) = 0;
+	bool operator==(int) const;
+	int getCode() const;
+	virtual float getPayment(int) const = 0;
 
 	~Employee();
 

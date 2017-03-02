@@ -17,7 +17,7 @@ Private_Client::~Private_Client()
 {
 }
 
-float Private_Client::cost(int num, Screening& screening)
+float Private_Client::cost(int num, Screening& screening) const
 {
 	float discount;
 	num_of_tickets < 10 ? discount = 0 : discount = 0.05;

@@ -18,9 +18,9 @@ public:
 	elementList<RegularEmployee> rgVec;
 	void addEmployee(string);  //employee name
 	~Manager();
-	float getPayment(int);
+	float getPayment(int) const;
 
-	int totalTicketsSold();
+	int totalTicketsSold() const;
 
 private:
 	static int counter;

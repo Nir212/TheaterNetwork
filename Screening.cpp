@@ -25,42 +25,44 @@ Screening::~Screening()
 {
 }
 
-int Screening::getMovieCode()
+int Screening::getMovieCode() const
 {
 	return movie->getMovieCode();
 }
 
-float Screening::getPrice()
+float Screening::getPrice() const
 {
 	return movie->getPrice();
 }
 
 void Screening::addSeat(Client& client, int row, int col)
 {
-	if (client.getAge() < movie->getMinAge())
-		throw 0;//minimum age requirement
+	
 	if (available_seats==0)
-		throw 1;//screening is full
+		throw 3;//screening is full
 	available_seats--;
-	seatArr[row][col] = true;
+	if (!seatArr[row][col])
+		seatArr[row][col] = true;
+	else
+		throw 4;//the spot is taken
 }
 
-int Screening::getTime()
+int Screening::getTime() const
 {
 	return time;
 }
 
-const bool** Screening::getSeatArr()
+const bool** Screening::getSeatArr() const
 {
 	return (const bool**) seatArr;
 }
 
-int Screening::getCode()
+int Screening::getCode() const
 {
 	return code;
 }
 
-bool  Screening::operator==(int code)
+bool  Screening::operator==(int code) const
 {
 	return (this->code == code);
 }

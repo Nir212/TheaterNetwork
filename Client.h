@@ -15,11 +15,12 @@ public:
 	Client(string& name,int age, int num_of_tickets);//C'ntr with initialization of name and num_of_tickets
 	Client(string& name, int age);//C'ntr with initialization of name. num_of_tickets will be 0;
 	~Client();
-	virtual float cost(int num, Screening& screening) = 0;//gets the number of tickets and the screening and returns the cost.
-	string getName();
-	int getCode();
-	int getAge();
-	bool operator==(int code);//check eqaulity by code.
+	virtual float cost(int num, Screening& screening) const = 0;//gets the number of tickets and the screening and returns the cost.
+	string getName() const;
+	int getCode() const;
+	int getAge() const;
+	bool operator==(int code) const;//check eqaulity by code.
+	void addTickets(int num);
 protected:
 	static int count;//counts how many clients so far.
 	int num_of_tickets;

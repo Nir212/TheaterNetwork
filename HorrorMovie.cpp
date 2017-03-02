@@ -10,17 +10,17 @@ HorrorMovie::HorrorMovie(string name, int minAge, float length, float price, hRa
 	this->horrorRate = horrorRate;
 }
 
-movieType HorrorMovie::getMovieType()
+movieType HorrorMovie::getMovieType() const
 {
 	return mType;
 }
 
-hRate HorrorMovie::getHorrorRate()
+hRate HorrorMovie::getHorrorRate() const
 {
 	return horrorRate;
 }
 
 
-HorrorMovie::~HorrorMovie()
+HorrorMovie::~HorrorMovie() 
 {
 }
