@@ -57,6 +57,7 @@ T& elementList<T>::search(int code)
 	throw (1);
 }
 
+
 template<class T>
 int elementList<T>::getSize() const
 {

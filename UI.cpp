@@ -160,7 +160,7 @@ void UI::printNewMovieMenu()
 					cout << "Please enter a valid horror rate (1 to 3)\n";
 					break;
 				}
-			} while (horrorRate != 1 || horrorRate != 2 || horrorRate != 3);
+			} while ((horrorRate != 1) && (horrorRate != 2) && (horrorRate != 3));
 
 			break;
 
@@ -211,7 +211,7 @@ void UI::printNewScreeningMenu()
 	int movieCode;
 	int screeningRoomCode;
 	int time;
-	int flag = false;
+	bool flag = false;
 
 	do
 	{
@@ -221,7 +221,7 @@ void UI::printNewScreeningMenu()
 		cin >> screeningRoomCode;
 		cout << "Please enter screening time (hhmm):\n";
 		cin >> time;
-		if (movieCode <= 0 || screeningRoomCode <= 0)
+		if (movieCode < 0 || screeningRoomCode < 0)
 		{
 			flag = true;
 			cout << "One or more of your numbers is wrong\nPlease try again...\n";
@@ -262,7 +262,7 @@ void UI::printPurchaseMenu()
 		cin >> employeeCode;
 		cout << "Please enter manager code -\n";
 		cin >> managerCode;
-	} while (!th.checkEmployee(managerCode, employeeCode) || (managerCode == 0 && employeeCode == 0));
+	} while (!th.checkEmployee(managerCode, employeeCode));
 
 
 	if (managerCode != 0 && employeeCode != 0)
