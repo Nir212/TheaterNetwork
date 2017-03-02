@@ -79,7 +79,7 @@ void UI::printNewEmployeeMenu()
 			cout << "\nPlease enter Employee name - \n";
 			cin >> employeeName;
 			cout << "\nPlease enter the Manager's code - \n";
-			th.printManagers();
+			th.printEmployees();
 			cin >> managerCode;
 			try{
 				th.addRegularEmployee(employeeName, managerCode);
