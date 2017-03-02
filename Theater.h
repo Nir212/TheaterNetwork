@@ -5,7 +5,6 @@
 #include "KidsMovie.h"
 #include "Screening_Room.h"
 #include "Screening.h"
-#include "Client_Interface.h"
 #include "Client.h"
 #include "Business_Client.h"
 #include "Private_Client.h"

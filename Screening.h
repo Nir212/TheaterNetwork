@@ -2,7 +2,6 @@
 #include "Movie_Interface.h"
 #include "Movie.h"
 #include "Screening_Room.h"
-#include "Client_Interface.h"
 #include "Client.h"
 
 class Client;

@@ -1,11 +1,11 @@
 #pragma once
-#include "Client_Interface.h"
 #include <string>
+#include "Screening.h"
+using namespace std;
 
 class Screening;
 
-class Client: 
-	public Client_Interface
+class Client
 {
 	/*The Client class is a class that contains all the fields of both 
 	the business clients and the private clients and lack only the implamantion of
