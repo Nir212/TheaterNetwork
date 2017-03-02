@@ -122,12 +122,69 @@ void Theater::addSeat(int client_code, int screening_code, int row, int col)
 	}
 }
 
-const bool** Theater::getSeatArr(int screening_code)
+
+bool Theater::checkEmployee(int manager_code, int employee_code)
+{
+	try
+	{
+		Manager m1 = managerList.search(manager_code);
+		RegularEmployee e1 = m1.rgVec.search(employee_code);
+	}
+	catch (int e)
+	{
+		return false;
+	}
+	return true;
+}
+
+float Theater::getSalary(int hours, int manager_code, int employee_code)
+{
+	try
+	{
+		Manager m1 = managerList.search(manager_code);
+		RegularEmployee e1 = m1.rgVec.search(employee_code);
+		return e1.getPayment(hours);
+	}
+	catch (int e)
+	{
+		throw e;
+	}
+}
+
+float Theater::getSalary(int hours, int manager_code)
+{
+	try
+	{
+		Manager m1 = managerList.search(manager_code);
+		return m1.getPayment(hours);
+	}
+	catch (int e)
+	{
+		throw e;
+	}
+}
+
+void Theater::printSeatArr(int screening_code)
 {
 	try
 	{
 		Screening s1 = screeningList.search(screening_code);
-		return s1.getSeatArr();
+		const bool** seatArray = s1.getSeatArr();
+		cout << " ";
+		for (int i = 0; i < s1.getCol(); i++)
+		{
+			cout << i << " ";
+		}
+
+		for (int i = 0; i < s1.getRow(); i++)
+		{
+			cout << i;
+			for (int j = 0; j < s1.getCol(); j++)
+			{
+				(seatArray[i][j]) ? (cout << "X ") : (cout << "O ");
+			}
+			cout << "\n";
+		}
 	}
 	catch (int e)
 	{
@@ -137,29 +194,51 @@ const bool** Theater::getSeatArr(int screening_code)
 
 void Theater::printClients()
 {
-
+	cout << "\nThis theater clients are:\n";
+	for (int i = 0; i < clientList.getSize(); i++)
+	{
+		cout << clientList[i].getCode() << "	" << clientList[i].getName() << ",	" << clientList[i].getAge() << "\n";
+	}
 }
 
-void Theater::printManagers()
+void Theater::printEmployees()
 {
-
+	cout << "\nThis theater employees are:\n";
+	for (int i = 0; i < managerList.getSize(); i++)
+	{
+		cout << "Manager #" << i + 1 << ":" << managerList[i].getCode() << "	" << managerList[i].getName() << "\n";
+		for (int j = 0; j < managerList[i].rgVec.getSize(); j++)
+		{
+			cout << "	" << managerList[i].rgVec[j].getCode() << "	" << managerList[i].rgVec[j].getName() << "\n";
+		}
+	}
 }
 
-void Theater::printRegularEmployees()
+
+void Theater::printMovies()
 {
-
-}
-
-void Theater::printMovies(){
-
+	cout << "\nThis theater movies are:\n";
+	for (int i = 0; i < movieList.getSize(); i++)
+	{
+		cout << movieList[i].getMovieCode() << "	" << movieList[i].getMovieName() << ",	" << movieList[i].getLength() << "mins.\n";
+	}
 }
 
 void Theater::printScreeningRooms()
 {
-
+	cout << "\nThis theater Screening rooms are:\n";
+	for (int i = 0; i < screeningRoomList.getSize(); i++)
+	{
+		cout << screeningRoomList[i].getRoomNum() <<":\n";
+		printSeatArr(screeningRoomList[i].getRoomNum());
+	}
 }
 
 void Theater::printScreenings(int movie_code)
 {
-
+	cout << "\nThis theater Screening are:\n";
+	for (int i = 0; i < screeningList.getSize(); i++)
+	{
+		cout << screeningList[i].getCode() << ":" << movieList.search(screeningList[i].getMovieCode()).getMovieName() << ", " << screeningList [i].getTime()<< "\n";
+	}
 }

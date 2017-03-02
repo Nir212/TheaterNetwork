@@ -1,4 +1,5 @@
 #pragma once
+#include "Client_Interface.h"
 #include "Client.h"
 class Business_Client :
 	public Client

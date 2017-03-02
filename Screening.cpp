@@ -57,6 +57,16 @@ const bool** Screening::getSeatArr() const
 	return (const bool**) seatArr;
 }
 
+const int Screening::getCol() const
+{
+	return screening_Room->getCols();
+}
+
+const int Screening::getRow() const
+{
+	return screening_Room->getRows();
+}
+
 int Screening::getCode() const
 {
 	return code;

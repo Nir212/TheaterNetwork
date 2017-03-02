@@ -1,6 +1,8 @@
 #pragma once
+#include "Movie_Interface.h"
 #include "Movie.h"
 #include "Screening_Room.h"
+#include "Client_Interface.h"
 #include "Client.h"
 
 class Client;
@@ -16,6 +18,8 @@ public:
 	void addSeat(Client& client, int row, int col);//add a single seat to the screening
 	int getTime() const;
 	const bool** getSeatArr() const;//get the seat array.
+	const int getCol() const;//get the number of columns in the screening room.
+	const int getRow() const;//get the number of rows in the screening room.
 	int getCode() const;//get the screening code.
 	bool operator==(int code) const;//check eqaulity by code.
 private:

@@ -29,6 +29,11 @@ Client::Client(string& name, int age)
 }
 int Client::count = 0;
 
+float Client::cost(int num, Screening& screening) const 
+{
+	return 0;
+}
+
 string Client::getName() const
 {
 	return name;

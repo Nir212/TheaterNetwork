@@ -1,15 +1,8 @@
 #pragma once
+#include "Movie_Interface.h"
 
-#include <iostream>
-#include <string>
-using namespace std;
-
-enum movieType{
-	kids,
-	horror
-};
-
-class Movie
+class Movie: 
+	public Movie_Interface
 {
 public:
 	Movie(string, int, float, float);
@@ -19,7 +12,7 @@ public:
 	int getMinAge() const;
 	float getLength() const;
 	float getPrice() const;
-	virtual movieType getMovieType() const = 0;
+	virtual movieType getMovieType() const;
 	bool operator==(int code) const;//check eqaulity by code.
 	~Movie();
 

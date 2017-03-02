@@ -1,9 +1,11 @@
 #pragma once
+#include "Movie_Interface.h"
 #include "Movie.h"
 #include "HorrorMovie.h"
 #include "KidsMovie.h"
 #include "Screening_Room.h"
 #include "Screening.h"
+#include "Client_Interface.h"
 #include "Client.h"
 #include "Business_Client.h"
 #include "Private_Client.h"
@@ -29,11 +31,14 @@ public:
 	void ticketsPurchase(int client_code, int manager_code, int employee_code, int tickets_num);
 	float ticketsCost(int client_code, int screening_code, int tickets_num);
 	void addSeat(int client_code,int screening_code, int row, int col);
-	const bool** getSeatArr(int screening_code);
+	
+	bool checkEmployee(int manager_code, int employee_code);
+	float getSalary(int hours, int manager_code, int employee_code);
+	float getSalary(int hours, int manager_code);
 
+	void printSeatArr(int screening_code);
 	void printClients();
-	void printManagers();
-	void printRegularEmployees();
+	void printEmployees();
 	void printMovies();
 	void printScreeningRooms();
 	void printScreenings(int movie_code);
