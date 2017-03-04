@@ -5,6 +5,8 @@ using namespace std;
 template<class T>
 class elementList
 {
+	/*elementList is a template for a vector that we will use to contain our other classes.
+	we will find an element in the vector by using the method search.*/
 public:
 	elementList();
 	~elementList();

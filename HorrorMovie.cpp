@@ -5,8 +5,8 @@
 HorrorMovie::HorrorMovie(string name, int minAge, float length, float price, hRate horrorRate): Movie(name, minAge, length, price)
 {
 	mType = horror;
-	Movie::serial++;
 	code = Movie::serial;
+	Movie::serial++;
 	this->horrorRate = horrorRate;
 }
 

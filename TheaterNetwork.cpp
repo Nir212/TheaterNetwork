@@ -7,6 +7,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	/*the main function only creates an UI object
+	the UI object holds the theater objects and does all the interaction with the user.*/
 	UI ui;
 	ui.printMainMenu();
 

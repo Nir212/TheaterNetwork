@@ -9,8 +9,7 @@ Screening_Room::Screening_Room(int num_of_seats, int row)
 	this->num_of_seats = num_of_seats;
 	this->row = row;
 	this->col = num_of_seats / row;
-	count++;
-	roomNum = count;
+	roomNum = count++;
 }
 
 int Screening_Room::getRoomNum() const
@@ -32,7 +31,7 @@ bool ** Screening_Room::creatSeats()
 	
 	for (int i = 0; i < row; i++)
 	{
-		for (int j = 0; i < col; i++)
+		for (int j = 0; j < col; j++)
 		{
 			seatsArr[i][j] = false;
 		}

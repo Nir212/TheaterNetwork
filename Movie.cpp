@@ -26,6 +26,11 @@ int Movie::getMinAge() const
 	return minAge;
 }
 
+movieType Movie::getMovieType() const 
+{ 
+	return regular; 
+}
+
 float Movie::getLength() const
 {
 	return length;

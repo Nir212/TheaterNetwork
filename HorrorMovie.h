@@ -10,11 +10,12 @@ enum hRate{
 class HorrorMovie :
 	public Movie
 {
+	/*defines horror movie, inherents from Movie class*/
 public:
-	HorrorMovie(string, int, float, float, hRate);
+	HorrorMovie(string, int, float, float, hRate);//initializing the horror movie with name, minimum age, length, price and rating.
 
-	movieType getMovieType() const;
-	hRate getHorrorRate() const;
+	movieType getMovieType() const;//returns the movie type (horror)
+	hRate getHorrorRate() const;//returns the movie rate
 
 	~HorrorMovie();
 

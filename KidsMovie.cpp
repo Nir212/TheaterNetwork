@@ -5,8 +5,8 @@
 KidsMovie::KidsMovie(string name, int minAge, int maxAge, float length, float price) : Movie(name, minAge, length, price)
 {
 	mType = kids;
-	Movie::serial++;
 	code = Movie::serial;
+	Movie::serial++;
 	this->maxAge = maxAge;
 }
 

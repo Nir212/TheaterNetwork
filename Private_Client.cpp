@@ -21,5 +21,5 @@ float Private_Client::cost(int num, Screening& screening) const
 {
 	float discount;
 	num_of_tickets < 10 ? discount = 0 : discount = 0.05;
-	return num*discount*screening.getPrice();
+	return num*(1 - discount)*screening.getPrice();
 }
